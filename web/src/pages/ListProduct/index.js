@@ -1,27 +1,32 @@
 import React from 'react';
 import Header from '../../components/HeaderList';
-import { Formik, Field } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import { Container } from './styles';
 
 function ListProduct() {
+  function onSubmit(values, actions) {
+    console.log(values);
+  }
   return (
     <Container>
       <Header />
-      <div>
+      <div className="header-main">
         <Formik
+          onSubmit={onSubmit}
           initialValues={{
-            Product: '',
+            product: '',
           }}
           render={({ values }) => (
-            <form>
-              <div>
+            <Form className="form-input">
+              <div className="header-title">
                 <label>Produto</label>
                 <Field name="product" type="text" />
               </div>
-              <button type="submit">Buscasr </button>
-            </form>
+              <button type="submit">Buscar</button>
+            </Form>
           )}
         />
+        <main>Teste</main>
       </div>
     </Container>
   );
