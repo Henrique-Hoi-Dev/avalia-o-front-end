@@ -16,23 +16,14 @@ function RegistrationProduct() {
         <Formik
           onSubmit={onSubmit}
           initialValues={{
-            nome: '',
+            product: '',
             categoria: 'celular',
-            altura: '',
-            largura: '',
-            comprimento: '',
-            codigoDeBarra: '',
-            peso: '',
-            preço: '',
-            categoria: '',
-            diaDaSemana: '',
-            horario: '',
           }}
           render={({ values }) => (
             <Form className="form-input">
               <div className="header-title">
-                <label htmlFor="nome">Nome do Produto</label>
-                <Field name="nome" type="text" />
+                <label htmlFor="nome-do-produto">Nome do Produto</label>
+                <Field name="product" type="text" />
 
                 <label htmlFor="altura">Altura(cm)</label>
                 <Field name="altura" type="number" />
@@ -43,34 +34,31 @@ function RegistrationProduct() {
                 <label htmlFor="comprimento">Comprimento(cm)</label>
                 <Field name="comprimento" type="number" />
 
-                <label htmlFor="codigoDeBarra">Código de barra</label>
-                <Field name="codigoDeBarra" type="number" />
+                <label htmlFor="codigo-de-barra">Código de barra</label>
+                <Field name="comprimento" type="number" />
 
                 <label htmlFor="peso">Peso(Kg)</label>
                 <Field name="peso" type="number" />
 
                 <label htmlFor="preço">Preço(R$)</label>
                 <Field name="preço" type="number" />
-                <div className="select">
-                  <label htmlFor="categoria">Categoria</label>
-                  <Field component="select" id="location" name="categoria">
-                    <option value="celular">Celular</option>
-                    <option value="tvs">Tvs</option>
-                    <option value="notbook">Notbook</option>
-                    <option value="acessorios">Acessórios</option>
-                  </Field>
 
-                  <label htmlFor="diaDaSemana">Dia da semana</label>
-                  <Field component="select" id="location" name="diaDaSemana">
-                    <option value="domingo">Domingo</option>
-                    <option value="segunda-feira">Segunda-feira</option>
-                    <option value="terça-feira">Terça-feira</option>
-                    <option value="quarta-feira">Quarta-feira</option>
-                    <option value="quinta-feira">Quinta-feira</option>
-                    <option value="sexta-feira">Sexta-feira</option>
-                    <option value="sabado">Sábado</option>
-                  </Field>
-                </div>
+                <label htmlFor="categoria">Categoria</label>
+                <Field id="categoria" nome="categoria" component="select">
+                  <option value="celular">Celular</option>
+                  <option value="tvs">Tvs</option>
+                  <option value="notbook">Notbook</option>
+                  <option value="acessorios">Acessórios</option>
+                </Field>
+
+                <label htmlFor="dia-da-semana">Dia da semana</label>
+                <Field id="categoria" nome="categoria" component="select">
+                  <option value="celular">Celular</option>
+                  <option value="tvs">Tvs</option>
+                  <option value="notbook">Notbook</option>
+                  <option value="acessorios">Acessórios</option>
+                </Field>
+
                 <label htmlFor="horario">Horário</label>
                 <Field name="horario" type="time" />
 
@@ -82,7 +70,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <button>Imagem</button>
+                  <button type="submit">Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>

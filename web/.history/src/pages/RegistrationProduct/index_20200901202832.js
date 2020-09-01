@@ -51,7 +51,7 @@ function RegistrationProduct() {
 
                 <label htmlFor="preço">Preço(R$)</label>
                 <Field name="preço" type="number" />
-                <div className="select">
+                <div>
                   <label htmlFor="categoria">Categoria</label>
                   <Field component="select" id="location" name="categoria">
                     <option value="celular">Celular</option>

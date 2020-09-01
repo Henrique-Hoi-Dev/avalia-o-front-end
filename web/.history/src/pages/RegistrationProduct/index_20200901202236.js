@@ -51,26 +51,26 @@ function RegistrationProduct() {
 
                 <label htmlFor="preço">Preço(R$)</label>
                 <Field name="preço" type="number" />
-                <div className="select">
-                  <label htmlFor="categoria">Categoria</label>
-                  <Field component="select" id="location" name="categoria">
-                    <option value="celular">Celular</option>
-                    <option value="tvs">Tvs</option>
-                    <option value="notbook">Notbook</option>
-                    <option value="acessorios">Acessórios</option>
-                  </Field>
 
-                  <label htmlFor="diaDaSemana">Dia da semana</label>
-                  <Field component="select" id="location" name="diaDaSemana">
-                    <option value="domingo">Domingo</option>
-                    <option value="segunda-feira">Segunda-feira</option>
-                    <option value="terça-feira">Terça-feira</option>
-                    <option value="quarta-feira">Quarta-feira</option>
-                    <option value="quinta-feira">Quinta-feira</option>
-                    <option value="sexta-feira">Sexta-feira</option>
-                    <option value="sabado">Sábado</option>
-                  </Field>
-                </div>
+                <label htmlFor="categoria">Categoria</label>
+                <Field component="select" id="location" name="location">
+                  <option value="celular">Celular</option>
+                  <option value="tvs">Tvs</option>
+                  <option value="notbook">Notbook</option>
+                  <option value="acessorios">Acessórios</option>
+                </Field>
+
+                <label htmlFor="diaDaSemana">Dia da semana</label>
+                <Field id="diaDaSemana" nome="diaDaSemana" component="select">
+                  <option value="domingo">Domingo</option>
+                  <option value="segunda-feira">Segunda-feira</option>
+                  <option value="terça-feira">Terça-feira</option>
+                  <option value="quarta-feira">Quarta-feira</option>
+                  <option value="quinta-feira">Quinta-feira</option>
+                  <option value="sexta-feira">Sexta-feira</option>
+                  <option value="sabado">Sábado</option>
+                </Field>
+
                 <label htmlFor="horario">Horário</label>
                 <Field name="horario" type="time" />
 
@@ -82,7 +82,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <button>Imagem</button>
+                  <button type="submit">Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>

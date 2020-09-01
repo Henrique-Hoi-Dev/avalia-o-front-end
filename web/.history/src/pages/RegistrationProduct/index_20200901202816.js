@@ -51,7 +51,7 @@ function RegistrationProduct() {
 
                 <label htmlFor="preço">Preço(R$)</label>
                 <Field name="preço" type="number" />
-                <div className="select">
+                <div>
                   <label htmlFor="categoria">Categoria</label>
                   <Field component="select" id="location" name="categoria">
                     <option value="celular">Celular</option>
@@ -82,7 +82,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <button>Imagem</button>
+                  <button type="#">Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>

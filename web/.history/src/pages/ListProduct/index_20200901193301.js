@@ -23,7 +23,7 @@ function ListProduct() {
                 <label>Produto</label>
                 <Field name="product" type="text" />
 
-                <label htmlFor="categoria">Categoria</label>
+                <label>Categoria</label>
                 <Field nome="categoria" component="select">
                   <option value="celular">Celular</option>
                   <option value="tvs">Tvs</option>
