@@ -15,18 +15,31 @@ function ListProduct() {
           onSubmit={onSubmit}
           initialValues={{
             product: '',
+            categoria: 'celular',
           }}
           render={({ values }) => (
             <Form className="form-input">
               <div className="header-title">
                 <label>Produto</label>
                 <Field name="product" type="text" />
+
+                <label>Categoria</label>
+                <Field nome="categoria" component="select">
+                  <option value="celular">Celular</option>
+                  <option value="tvs">Tvs</option>
+                  <option value="notbook">Notbook</option>
+                  <option value="acessorios">Acessórios</option>
+                </Field>
               </div>
               <button type="submit">Buscar</button>
+              <main>
+                <ul>
+                  <li></li>
+                </ul>
+              </main>
             </Form>
           )}
         />
-        <main>Teste</main>
       </div>
     </Container>
   );
