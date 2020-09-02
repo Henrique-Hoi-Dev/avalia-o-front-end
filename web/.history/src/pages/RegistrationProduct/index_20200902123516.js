@@ -24,9 +24,8 @@ const schema = Yup.object().shape({
 });
 
 function RegistrationProduct() {
-  async function onSubmit(values, actions) {
-    await new Promise((r) => setTimeout(r, 500));
-    alert(JSON.stringify(values, null, 2));
+  function onSubmit(values, actions) {
+    console.log(values);
   }
 
   return (

@@ -83,11 +83,11 @@ export const Container = styled.div`
 
     .buscar {
       grid-area: buscar;
-      margin-right: 1.5rem;
     }
 
     .categoria {
       grid-area: categoria;
+      margin-right: 1rem;
     }
   }
 `;

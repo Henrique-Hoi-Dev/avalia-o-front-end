@@ -76,18 +76,12 @@ export const Container = styled.div`
       max-width: 1100px;
 
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 210px;
-      grid-template-areas: 'buscar categoria ';
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 210px 550px 1fr;
+      grid-template-areas:
+        'name name name'
+        'campo2  campo4 campo3'
+        'campo5 campo5 campo5'
+        'button button button';
     }
-
-    .buscar {
-      grid-area: buscar;
-      margin-right: 1.5rem;
-    }
-
-    .categoria {
-      grid-area: categoria;
-    }
-  }
 `;

@@ -24,9 +24,8 @@ const schema = Yup.object().shape({
 });
 
 function RegistrationProduct() {
-  async function onSubmit(values, actions) {
-    await new Promise((r) => setTimeout(r, 500));
-    alert(JSON.stringify(values, null, 2));
+  function onSubmit(values, actions) {
+    console.log(values);
   }
 
   return (
@@ -52,6 +51,7 @@ function RegistrationProduct() {
           }}
           render={({ values, errors }) => (
             <Form className="form-input">
+              <FieldArray >
               <div id="container-input" className="header-title">
                 <div className="name-campo">
                   <label htmlFor="name">Nome do Produto</label>
@@ -116,7 +116,7 @@ function RegistrationProduct() {
                   <Field name="codigoDeBarra" type="number" />
                   <span>{errors.codigoDeBarra}</span>
                 </div>
-
+                
                 <footer className="buttons-container">
                   <p>
                     <FcHighPriority />

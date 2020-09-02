@@ -83,7 +83,7 @@ export const Container = styled.div`
 
     .buscar {
       grid-area: buscar;
-      margin-right: 1.5rem;
+      margin-right: 1rem;
     }
 
     .categoria {

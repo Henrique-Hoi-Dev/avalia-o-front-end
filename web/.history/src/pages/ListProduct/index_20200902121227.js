@@ -23,7 +23,7 @@ function ListProduct() {
         <Formik
           onSubmit={onSubmit}
           validationSchema={schema}
-          validateOnBlur
+          validateOnMount
           initialValues={{
             product: '',
             categoria: 'celular',
@@ -31,21 +31,17 @@ function ListProduct() {
           render={({ values, errors }) => (
             <Form className="form-input">
               <div id="header-busca" className="header-title">
-                <div className="buscar">
-                  <label htmlFor="product">Produto</label>
-                  <Field name="product" type="text" />
-                  <span>{errors.product}</span>
-                </div>
+                <label htmlFor="product">Produto</label>
+                <Field name="product" type="text" />
+                <span>{errors.product}</span>
 
-                <div className="categoria">
-                  <label htmlFor="categoria">Categoria</label>
-                  <Field nome="categoria" component="select">
-                    <option value="celular">Celular</option>
-                    <option value="tvs">Tvs</option>
-                    <option value="notbook">Notbook</option>
-                    <option value="acessorios">Acessórios</option>
-                  </Field>
-                </div>
+                <label htmlFor="categoria">Categoria</label>
+                <Field nome="categoria" component="select">
+                  <option value="celular">Celular</option>
+                  <option value="tvs">Tvs</option>
+                  <option value="notbook">Notbook</option>
+                  <option value="acessorios">Acessórios</option>
+                </Field>
               </div>
               <button type="submit">Buscar</button>
               <main>

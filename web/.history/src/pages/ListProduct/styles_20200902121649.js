@@ -77,17 +77,17 @@ export const Container = styled.div`
 
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 210px;
+      grid-template-rows: 210px 550px;
       grid-template-areas: 'buscar categoria ';
     }
 
     .buscar {
       grid-area: buscar;
-      margin-right: 1.5rem;
     }
 
     .categoria {
       grid-area: categoria;
+      margin-right: 1rem;
     }
   }
 `;

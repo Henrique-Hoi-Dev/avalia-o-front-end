@@ -24,6 +24,7 @@ function ListProduct() {
           onSubmit={onSubmit}
           validationSchema={schema}
           validateOnBlur
+          validateOnMount
           initialValues={{
             product: '',
             categoria: 'celular',

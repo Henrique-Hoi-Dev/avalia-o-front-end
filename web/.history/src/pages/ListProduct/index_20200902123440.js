@@ -23,7 +23,8 @@ function ListProduct() {
         <Formik
           onSubmit={onSubmit}
           validationSchema={schema}
-          validateOnBlur
+          
+          validateOnMount
           initialValues={{
             product: '',
             categoria: 'celular',

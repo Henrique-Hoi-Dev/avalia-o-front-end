@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, FieldArray } from 'formik';
 import * as Yup from 'yup';
 
 import { FcHighPriority } from 'react-icons/fc';
@@ -24,9 +24,8 @@ const schema = Yup.object().shape({
 });
 
 function RegistrationProduct() {
-  async function onSubmit(values, actions) {
-    await new Promise((r) => setTimeout(r, 500));
-    alert(JSON.stringify(values, null, 2));
+  function onSubmit(values, actions) {
+    console.log(values);
   }
 
   return (
@@ -34,28 +33,21 @@ function RegistrationProduct() {
       <Header />
       <div className="header-main">
         <Formik
-          onSubmit={onSubmit}
           validationSchema={schema}
           validateOnBlur
-          initialValues={{
-            name: '',
-            categoria: 'celular',
-            altura: '',
-            largura: '',
-            comprimento: '',
-            codigoDeBarra: '',
-            peso: '',
-            preço: '',
-            descriçao: '',
-            diaDaSemana: 'domingo',
-            horario: '',
-          }}
-          render={({ values, errors }) => (
-            <Form className="form-input">
-              <div id="container-input" className="header-title">
+          initialValues={initialValues}
+        />
+        {({ values, errors }) => (
+          <Form className="form-input">
+            <div id="container-input" className="header-title">
+              <FieldArray name="product">
                 <div className="name-campo">
                   <label htmlFor="name">Nome do Produto</label>
-                  <Field name="name" type="text" />
+                  <Field
+                    placeholder="Digite o nome do produto.."
+                    name="name"
+                    type="text"
+                  />
                   <span>{errors.name}</span>
                 </div>
 
@@ -116,19 +108,18 @@ function RegistrationProduct() {
                   <Field name="codigoDeBarra" type="number" />
                   <span>{errors.codigoDeBarra}</span>
                 </div>
-
-                <footer className="buttons-container">
-                  <p>
-                    <FcHighPriority />
-                    Importante! <br />
-                    Preencha todos os dados
-                  </p>
-                  <button type="submit">Salvar</button>
-                </footer>
-              </div>
-            </Form>
-          )}
-        />
+              </FieldArray>
+              <footer className="buttons-container">
+                <p>
+                  <FcHighPriority />
+                  Importante! <br />
+                  Preencha todos os dados
+                </p>
+                <button type="submit">Salvar</button>
+              </footer>
+            </div>
+          </Form>
+        )}
       </div>
     </Container>
   );
