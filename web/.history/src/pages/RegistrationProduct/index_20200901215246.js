@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { FcHighPriority } from 'react-icons/fc';
 import { Container } from './styles';
 import Header from '../../components/HeaderRecord';
-import AvatarInput from './Avatarinput';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -20,7 +19,7 @@ const schema = Yup.object().shape({
   preço: Yup.number().required('! Este compo é obrigatório.'),
   descriçao: Yup.string().required('! Este compo é obrigatório.'),
   diaDaSemana: Yup.string().required('! Este compo é obrigatório.'),
-  horario: Yup.string().required('! Horário é obrigatório.'),
+  horario: Yup.string().required('! Este compo é obrigatório.'),
 });
 
 function RegistrationProduct() {
@@ -28,6 +27,16 @@ function RegistrationProduct() {
     console.log(values);
   }
 
+  const [values, setValues] = useState({
+    descriçao: '',
+  });
+
+  function onChange(ev) {
+    setValues({
+      ...values,
+      [ev.target.descriçao]: ev.target.value,
+    });
+  }
   return (
     <Container>
       <Header />
@@ -101,10 +110,9 @@ function RegistrationProduct() {
 
                 <label htmlFor="horario">Horário</label>
                 <Field name="horario" type="time" />
-                <span>{errors.horario}</span>
 
-                <label htmlFor="descriçao">Descrição</label>
-                <Field as="textarea" name="descriçao" type="text" />
+                <label htmlFor="">Descrição</label>
+                <Field name="descriçao" type="text" />
                 <span>{errors.descriçao}</span>
                 <footer>
                   <p>
@@ -112,7 +120,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <AvatarInput />
+                  <button>Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>

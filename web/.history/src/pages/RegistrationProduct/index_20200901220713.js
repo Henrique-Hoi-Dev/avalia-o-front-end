@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { FcHighPriority } from 'react-icons/fc';
 import { Container } from './styles';
 import Header from '../../components/HeaderRecord';
-import AvatarInput from './Avatarinput';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -28,6 +27,16 @@ function RegistrationProduct() {
     console.log(values);
   }
 
+  const [values, setValues] = useState({
+    descriçao: '',
+  });
+
+  function onChange(props) {
+    setValues({
+      ...values,
+      [props.target.descriçao]: props.target.value,
+    });
+  }
   return (
     <Container>
       <Header />
@@ -103,7 +112,7 @@ function RegistrationProduct() {
                 <Field name="horario" type="time" />
                 <span>{errors.horario}</span>
 
-                <label htmlFor="descriçao">Descrição</label>
+                <label htmlFor="">Descrição</label>
                 <Field as="textarea" name="descriçao" type="text" />
                 <span>{errors.descriçao}</span>
                 <footer>
@@ -112,7 +121,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <AvatarInput />
+                  <button>Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>

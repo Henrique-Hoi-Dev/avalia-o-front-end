@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { FcHighPriority } from 'react-icons/fc';
 import { Container } from './styles';
 import Header from '../../components/HeaderRecord';
-import AvatarInput from './Avatarinput';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -112,7 +111,7 @@ function RegistrationProduct() {
                     Preencha todos os dados
                     <FcHighPriority />
                   </p>
-                  <AvatarInput />
+                  <button>Imagem</button>
                   <button type="submit">Salvar</button>
                 </footer>
               </div>
