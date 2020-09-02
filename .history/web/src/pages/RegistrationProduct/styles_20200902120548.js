@@ -5,7 +5,6 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   font-size: 0.8rem;
-  }
 
   .header-main {
     background: var(--color-box-base);
@@ -16,23 +15,6 @@ export const Container = styled.div`
     margin: -3rem auto 3.2rem;
     padding-top: 6.4rem;
     overflow: hidden;
-
-    .list-product {
-      background: none;
-      text-decoration: none;
-
-      display: flex;
-      flex-direction: row-reverse;
-      border: 0;
-      margin-right: 1rem;
-      color: var(--color-primary);
-      font: 700 1.6rem Archivo;
-      cursor: pointer;
-      transition: color 0.2s;
-
-      &:hover {
-        color: ${darken(0.03, '#6842c2')};
-      }
   }
 
   input,

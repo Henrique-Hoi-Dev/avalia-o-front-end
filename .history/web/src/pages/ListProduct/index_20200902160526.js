@@ -59,10 +59,6 @@ function ListProduct() {
                       <td>1</td>
                       <td>bla bla</td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>blaqweqwe qweqwe</td>
-                    </tr>
                   </tbody>
                 </table>
               </main>

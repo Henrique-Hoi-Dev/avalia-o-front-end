@@ -34,10 +34,11 @@ function RegistrationProduct() {
     <Container>
       <Header />
       <div className="header-main">
-        <Link className="list-product" to="/list">
-          <FcList /> Lista de Produto
-        </Link>
-
+        <button>
+          <Link className="list-product" to="/list">
+            <FcList /> Lista de Produto
+          </Link>
+        </button>
         <Formik
           onSubmit={onSubmit}
           validationSchema={schema}

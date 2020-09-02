@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { FcHighPriority, FcList } from 'react-icons/fc';
+import { FcHighPriority, FcAdvance } from 'react-icons/fc';
 import { Container } from './styles';
 import Header from '../../components/HeaderRecord';
 import AvatarInput from './Avatarinput';
@@ -35,9 +35,8 @@ function RegistrationProduct() {
       <Header />
       <div className="header-main">
         <Link className="list-product" to="/list">
-          <FcList /> Lista de Produto
+          <FcAdvance /> Lista de Produto
         </Link>
-
         <Formik
           onSubmit={onSubmit}
           validationSchema={schema}

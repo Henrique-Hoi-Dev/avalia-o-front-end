@@ -37,7 +37,6 @@ function RegistrationProduct() {
         <Link className="list-product" to="/list">
           <FcList /> Lista de Produto
         </Link>
-
         <Formik
           onSubmit={onSubmit}
           validationSchema={schema}

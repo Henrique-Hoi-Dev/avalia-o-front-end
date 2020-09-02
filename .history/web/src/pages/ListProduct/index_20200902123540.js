@@ -49,22 +49,11 @@ function ListProduct() {
               </div>
               <button type="submit">Buscar</button>
               <main>
-                <table>
-                  <thead>
-                    <td>cod</td>
-                    <td>nome</td>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>bla bla</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>blaqweqwe qweqwe</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
               </main>
             </Form>
           )}

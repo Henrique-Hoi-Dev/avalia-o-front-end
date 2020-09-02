@@ -17,22 +17,20 @@ export const Container = styled.div`
     padding-top: 6.4rem;
     overflow: hidden;
 
-    .list-product {
-      background: none;
-      text-decoration: none;
+   .list-product {
+    background: var(--color-primary-dark);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1rem Archivo;
+    display: flex;
 
-      display: flex;
-      flex-direction: row-reverse;
-      border: 0;
-      margin-right: 1rem;
-      color: var(--color-primary);
-      font: 700 1.6rem Archivo;
-      cursor: pointer;
-      transition: color 0.2s;
+    transition: background-color 0.2s;
 
-      &:hover {
-        color: ${darken(0.03, '#6842c2')};
-      }
+    &:hover {
+      color: ${darken(0.03, '#6842c2')};
+    }
   }
 
   input,

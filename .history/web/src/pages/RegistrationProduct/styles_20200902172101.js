@@ -24,7 +24,7 @@ export const Container = styled.div`
       display: flex;
       flex-direction: row-reverse;
       border: 0;
-      margin-right: 1rem;
+      /* margin: 1rem; */
       color: var(--color-primary);
       font: 700 1.6rem Archivo;
       cursor: pointer;

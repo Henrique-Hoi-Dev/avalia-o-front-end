@@ -34,7 +34,7 @@ function RegistrationProduct() {
     <Container>
       <Header />
       <div className="header-main">
-        <Link className="list-product" to="/list">
+        <Link to="/list">
           <FcList /> Lista de Produto
         </Link>
 
