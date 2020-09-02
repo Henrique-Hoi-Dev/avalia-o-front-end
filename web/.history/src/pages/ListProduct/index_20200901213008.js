@@ -22,7 +22,7 @@ function ListProduct() {
       <div className="header-main">
         <Formik
           onSubmit={onSubmit}
-          validationSchema={schema}
+          validateOnChange={schema}
           validateOnMount
           initialValues={{
             product: '',
@@ -31,7 +31,7 @@ function ListProduct() {
           render={({ values, errors }) => (
             <Form className="form-input">
               <div className="header-title">
-                <label htmlFor="product">Produto</label>
+                <label>Produto</label>
                 <Field name="product" type="text" />
                 <span>{errors.product}</span>
 

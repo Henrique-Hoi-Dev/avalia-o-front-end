@@ -22,7 +22,7 @@ function ListProduct() {
       <div className="header-main">
         <Formik
           onSubmit={onSubmit}
-          validationSchema={schema}
+          validateOnChange={schema}
           validateOnMount
           initialValues={{
             product: '',

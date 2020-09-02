@@ -10,9 +10,11 @@ const schema = Yup.object().shape({
   name: Yup.string()
     .required('! Este compo é obrigatório.')
     .max(100, '! No máximo 100 caracteres'),
-  categoria: Yup.string().required('! Este compo é obrigatório.'),
+  categoria: Yup.string()
+    .email('! Este compo é obrigatório.')
+    .required('! Este compo é obrigatório.'),
   altura: Yup.number().required('! Este compo é obrigatório.'),
-  largura: Yup.number().required('! Este compo é obrigatório.'),
+  lagura: Yup.number().required('! Este compo é obrigatório.'),
   comprimento: Yup.number().required('! Este compo é obrigatório.'),
   codigoDeBarra: Yup.number().required('! Este compo é obrigatório.'),
   peso: Yup.number().required('! Este compo é obrigatório.'),
@@ -56,27 +58,27 @@ function RegistrationProduct() {
 
                 <label htmlFor="altura">Altura(cm)</label>
                 <Field name="altura" type="number" />
-                <span>{errors.altura}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="largura">Largura(cm)</label>
                 <Field name="largura" type="number" />
-                <span>{errors.largura}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="comprimento">Comprimento(cm)</label>
                 <Field name="comprimento" type="number" />
-                <span>{errors.comprimento}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="codigoDeBarra">Código de barra</label>
                 <Field name="codigoDeBarra" type="number" />
-                <span>{errors.codigoDeBarra}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="peso">Peso do produto(Kg)</label>
                 <Field name="peso" type="number" />
-                <span>{errors.peso}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="preço">Preço(R$)</label>
                 <Field name="preço" type="number" />
-                <span>{errors.preço}</span>
+                <span>{errors.name}</span>
 
                 <label htmlFor="categoria">Categoria</label>
                 <Field component="select" id="location" name="categoria">
@@ -102,7 +104,6 @@ function RegistrationProduct() {
 
                 <label htmlFor="descriçao">Descrição</label>
                 <textarea></textarea>
-                <span>{errors.name}</span>
                 <footer>
                   <p>
                     Importante! <br />

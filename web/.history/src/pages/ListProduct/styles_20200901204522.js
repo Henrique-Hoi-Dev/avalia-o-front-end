@@ -16,8 +16,18 @@ export const Container = styled.div`
     overflow: hidden;
   }
 
-  input,
-  select {
+  <select name='' id='' > </select > {
+    width: 100%;
+    height: 3.6rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+  }
+
+  input {
     width: 100%;
     height: 3.6rem;
     border-radius: 0.8rem;
@@ -47,18 +57,10 @@ export const Container = styled.div`
       }
     }
   }
-  .header-title span {
-    color: #ff0000;
-    align-self: flex-start;
-    margin: 0 0 10px;
-    font-weight: bold;
-  }
-
-  label {
+  .header-title label {
     font: 700 1.4rem Archivo;
     color: var(--color-text-title);
     margin-bottom: 1.4rem;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

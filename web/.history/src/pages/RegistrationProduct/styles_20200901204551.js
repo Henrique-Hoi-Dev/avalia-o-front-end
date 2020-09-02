@@ -17,8 +17,18 @@ export const Container = styled.div`
     overflow: hidden;
   }
 
-  input,
   select {
+    width: 100%;
+    height: 3.6rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+  }
+
+  input {
     width: 100%;
     height: 3.6rem;
     border-radius: 0.8rem;
@@ -81,13 +91,6 @@ export const Container = styled.div`
       font-size: 1.4rem;
       line-height: 2.4rem;
       color: var(--color-text-complement);
-    }
-
-    span {
-      color: #ff0000;
-      align-self: flex-start;
-      margin: 0 0 10px;
-      font-weight: bold;
     }
 
     main {

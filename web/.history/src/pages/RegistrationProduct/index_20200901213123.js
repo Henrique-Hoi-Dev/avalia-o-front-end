@@ -78,8 +78,8 @@ function RegistrationProduct() {
                 <Field name="preço" type="number" />
                 <span>{errors.preço}</span>
 
-                <label htmlFor="categoria">Categoria</label>
-                <Field component="select" id="location" name="categoria">
+                <label htmlFor="categorias">Categoria</label>
+                <Field component="select" id="location" name="categorias">
                   <option value="celular">Celular</option>
                   <option value="tvs">Tvs</option>
                   <option value="notbook">Notbook</option>

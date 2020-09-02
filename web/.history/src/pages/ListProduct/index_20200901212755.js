@@ -22,8 +22,6 @@ function ListProduct() {
       <div className="header-main">
         <Formik
           onSubmit={onSubmit}
-          validationSchema={schema}
-          validateOnMount
           initialValues={{
             product: '',
             categoria: 'celular',
@@ -31,10 +29,9 @@ function ListProduct() {
           render={({ values, errors }) => (
             <Form className="form-input">
               <div className="header-title">
-                <label htmlFor="product">Produto</label>
+                <label>Produto</label>
                 <Field name="product" type="text" />
                 <span>{errors.product}</span>
-
                 <label htmlFor="categoria">Categoria</label>
                 <Field nome="categoria" component="select">
                   <option value="celular">Celular</option>

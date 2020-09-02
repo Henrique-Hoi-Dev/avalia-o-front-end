@@ -15,9 +15,7 @@ export const Container = styled.div`
     padding-top: 6.4rem;
     overflow: hidden;
   }
-
-  input,
-  select {
+  input {
     width: 100%;
     height: 3.6rem;
     border-radius: 0.8rem;
@@ -47,18 +45,10 @@ export const Container = styled.div`
       }
     }
   }
-  .header-title span {
-    color: #ff0000;
-    align-self: flex-start;
-    margin: 0 0 10px;
-    font-weight: bold;
-  }
-
-  label {
+  .header-title label {
     font: 700 1.4rem Archivo;
     color: var(--color-text-title);
     margin-bottom: 1.4rem;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

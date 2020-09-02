@@ -10,7 +10,9 @@ const schema = Yup.object().shape({
   name: Yup.string()
     .required('! Este compo é obrigatório.')
     .max(100, '! No máximo 100 caracteres'),
-  categoria: Yup.string().required('! Este compo é obrigatório.'),
+  categoria: Yup.string()
+    .email('! Este compo é obrigatório.')
+    .required('! Este compo é obrigatório.'),
   altura: Yup.number().required('! Este compo é obrigatório.'),
   largura: Yup.number().required('! Este compo é obrigatório.'),
   comprimento: Yup.number().required('! Este compo é obrigatório.'),

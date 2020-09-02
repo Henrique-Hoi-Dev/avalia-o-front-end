@@ -83,13 +83,6 @@ export const Container = styled.div`
       color: var(--color-text-complement);
     }
 
-    span {
-      color: #ff0000;
-      align-self: flex-start;
-      margin: 0 0 10px;
-      font-weight: bold;
-    }
-
     main {
       margin: 3.2rem auto;
       width: 90%;
