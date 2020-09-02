@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Celular Samsung",
+      "price": 500
+    },
+    {
+      "id": 2,
+      "name": "Celular iPhone 8",
+      "price": 1500
+    },
+    {
+      "id": 3,
+      "name": "Notbook acer",
+      "price": 2500
+    },
+    {
+      "id": 4,
+      "name": "Cadeira gamer",
+      "price": 1500
+    },
+    {
+      "name": "iPhone 6",
+      "price": "1000",
+      "id": 5
+    },
+    {
+      "name": "iPhone x",
+      "price": "3000",
+      "id": 6
+    },
+    {
+      "name": "Tv Samsung 42",
+      "price": "1500",
+      "id": 7
+    },
+    {
+      "name": "iPhone Xr ",
+      "price": "2000",
+      "id": 8
+    }
+  ]
+}
