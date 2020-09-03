@@ -97,6 +97,19 @@ function ListProduct() {
                       <FcEmptyTrash />
                     </button>
                   </tr>
+                  <tr className="product">
+                    <td>Produto 4</td>
+                    <td>Preço(R$; 0,00)</td>
+                    <td>Data 01/09/2020</td>
+                    <td>Descrição do produto</td>
+                    <img
+                      src="https://avatars1.githubusercontent.com/u/62766753?s=400&u=1b68262c4b2abe58a779bb03ae2c3d7e46ee4358&v=4"
+                      alt="avatar"
+                    />
+                    <button>
+                      <FcEmptyTrash />
+                    </button>
+                  </tr>
                 </tbody>
               </table>
             </Form>
