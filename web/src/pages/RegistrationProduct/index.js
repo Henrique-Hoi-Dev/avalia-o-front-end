@@ -1,39 +1,39 @@
 import React from 'react';
 import * as Yup from 'yup';
-import api from '../../services/api';
-import { toast } from 'react-toastify';
-
 import { Formik, Field, Form } from 'formik';
-import { FcHighPriority, FcList } from 'react-icons/fc';
-import { Container } from './styles';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createProductRequest } from '../../store/modules/product/actions';
+
 import Header from '../../components/HeaderRecord';
 import AvatarInput from './Avatarinput';
-import { Link } from 'react-router-dom';
+import { FcHighPriority, FcList } from 'react-icons/fc';
+import { Container } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string()
-    .required('! Este compo é obrigatório.')
-    .max(100, '! No máximo 100 caracteres'),
-  categoria: Yup.string().required('! Este compo é obrigatório.'),
-  altura: Yup.number().required('! Este compo é obrigatório.'),
-  largura: Yup.number().required('! Este compo é obrigatório.'),
-  comprimento: Yup.number().required('! Este compo é obrigatório.'),
-  codigoDeBarra: Yup.number().required('! Este compo é obrigatório.'),
-  peso: Yup.number().required('! Este compo é obrigatório.'),
-  preço: Yup.number().required('! Este compo é obrigatório.'),
-  descriçao: Yup.string().required('! Este compo é obrigatório.'),
-  diaDaSemana: Yup.string().required('! Este compo é obrigatório.'),
-  horario: Yup.string().required('! Horário é obrigatório.'),
+    .required(' Este compo é obrigatório.')
+    .max(100, ' No máximo 100 caracteres'),
+  categoria: Yup.string().required(' Este compo é obrigatório.'),
+  altura: Yup.number().required(' Este compo é obrigatório.'),
+  largura: Yup.number().required(' Este compo é obrigatório.'),
+  comprimento: Yup.number().required(' Este compo é obrigatório.'),
+  codigo_de_barra: Yup.number().required(' Este compo é obrigatório.'),
+  peso: Yup.number().required(' Este compo é obrigatório.'),
+  preco: Yup.number().required(' Este compo é obrigatório.'),
+  descricao: Yup.string().required(' Este compo é obrigatório.'),
+  diaDaSemana: Yup.string().required(' Este compo é obrigatório.'),
+  horario: Yup.string().required(' Horário é obrigatório.'),
 });
 
 export default function RegistrationProduct() {
-  async function onSubmit(values) {
-    console.log(values);
-    const products = await api.post(`/products`, { values: values });
+  const dispatch = useDispatch();
 
-    if (products) {
-      toast.success('Project saved successfully.');
-    }
+  function handleSubmit(values) {
+    values.avatar_id = document
+      .getElementById('avatar')
+      .getAttribute('data-file');
+    dispatch(createProductRequest(values));
   }
 
   return (
@@ -45,7 +45,7 @@ export default function RegistrationProduct() {
         </Link>
 
         <Formik
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           validationSchema={schema}
           validateOnBlur
           initialValues={{
@@ -54,13 +54,12 @@ export default function RegistrationProduct() {
             altura: '',
             largura: '',
             comprimento: '',
-            codigoDeBarra: '',
+            codigo_de_barra: '',
             peso: '',
-            preço: '',
-            descriçao: '',
+            preco: '',
+            descricao: '',
             diaDaSemana: 'domingo',
             horario: '',
-            avatar_id: [],
           }}
           render={({ values, errors }) => (
             <Form className="form-input">
@@ -84,12 +83,12 @@ export default function RegistrationProduct() {
                 </div>
 
                 <div className="campo3">
-                  <label htmlFor="peso">Peso do produto(Kg)</label>
+                  <label htmlFor="peso">Peso do produto(g)</label>
                   <Field name="peso" type="number" />
                   <span>{errors.peso}</span>
-                  <label htmlFor="preço">Preço(R$)</label>
-                  <Field name="preço" type="number" />
-                  <span>{errors.preço}</span>
+                  <label htmlFor="preco">Preço(R$)</label>
+                  <Field name="preco" type="number" />
+                  <span>{errors.preco}</span>
                   <ul>
                     <AvatarInput name="avatar_id" />
                   </ul>
@@ -121,12 +120,12 @@ export default function RegistrationProduct() {
                 </div>
 
                 <div className="campo5">
-                  <label htmlFor="descriçao">Descrição</label>
-                  <Field as="textarea" name="descriçao" type="text" />
-                  <span>{errors.descriçao}</span>
-                  <label htmlFor="codigoDeBarra">Código de barra</label>
-                  <Field name="codigoDeBarra" type="number" />
-                  <span>{errors.codigoDeBarra}</span>
+                  <label htmlFor="descricao">Descrição</label>
+                  <Field as="textarea" name="descricao" type="text" />
+                  <span>{errors.descricao}</span>
+                  <label htmlFor="codigo_de_barra">Código de barra</label>
+                  <Field name="codigo_de_barra" type="number" />
+                  <span>{errors.codigo_de_barra}</span>
                 </div>
 
                 <footer className="buttons-container">

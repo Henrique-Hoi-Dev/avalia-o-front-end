@@ -1,40 +1,25 @@
-export function findAllProduct(data) {
+export function createProductRequest(values) {
   return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
-    payload: { data },
+    type: '@product/CREATE_PRODUCT_REQUEST',
+    payload: { values },
   };
 }
 
-export function getByIdProduct(data) {
+export function createProductSuccess(product) {
   return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
-    payload: { data },
+    type: '@product/UPDATE_PROFILE_SUCCESS',
+    payload: { product },
   };
 }
 
-export function getByIdProductSuccess(data) {
+export function updateProfileFailure() {
   return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
-    payload: { data },
+    type: '@user/UPDATE_PROFILE_REQUEST',
   };
 }
 
-export function findAllProductSuccess(data) {
+export function productFailure() {
   return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
-    payload: { data },
-  };
-}
-
-export function deleteProduct(data) {
-  return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
-    payload: { data },
-  };
-}
-
-export function getProductFailure() {
-  return {
-    type: '@product/GET_BYID_PRODUCT_REQUEST',
+    type: '@auth/SIGN_FAILURE',
   };
 }

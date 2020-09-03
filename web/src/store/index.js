@@ -4,7 +4,7 @@ import createStore from './createStore';
 
 import persistReducers from './persistReducers';
 import rootReducer from './modules/rootReducer';
-import rootSaga from './modules/rootSaga';
+import rootSaga from './modules/rootSagas';
 
 const sagaMonitor =
   process.env.NODE_ENV === 'dsevelopment'

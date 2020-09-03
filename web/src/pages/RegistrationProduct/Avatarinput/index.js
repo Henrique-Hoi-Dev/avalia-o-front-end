@@ -38,7 +38,12 @@ export default function AvatarInput() {
   return (
     <Container>
       <label htmlFor="avatar">
-        <img src={preview || ''} alt="Imagem do Produto" />
+        <img
+          src={
+            preview || 'https://api.adorable.io/avatars/159/abott@adorable.png'
+          }
+          alt="Imagem do Produto"
+        />
         <input
           type="file"
           id="avatar"
@@ -47,6 +52,7 @@ export default function AvatarInput() {
           onChange={handleChange}
           ref={ref}
         />
+        Imagem do produto
       </label>
     </Container>
   );
