@@ -1,22 +1,41 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
-import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
 
-import { productFailure } from './actions';
+import { productFailure, findAllProductSuccess } from './actions';
 
 export function* createProduct({ payload }) {
   try {
     yield call(api.post, 'products/new', payload);
-    toast.success('sucesso!');
   } catch (err) {
-    console.log(err);
+    yield put(productFailure());
+  }
+}
 
-    toast.error('Erro, confira seus dados!');
+export function* findAllProduct({ payload }) {
+  try {
+    const response = yield call(api.get, `/products`);
+
+    yield put(findAllProductSuccess(response.data));
+  } catch (err) {
+    yield put(productFailure());
+  }
+}
+
+export function* deleteProduct({ payload }) {
+  try {
+    yield call(api.delete, `/products/${payload.data}`);
+
+    const response = yield call(api.get, `/products`);
+
+    yield put(findAllProductSuccess(response.data));
+  } catch (err) {
     yield put(productFailure());
   }
 }
 
 export default all([
   takeLatest('@product/CREATE_PRODUCT_REQUEST', createProduct),
+  takeLatest('@product/FINDALL_PRODUCT_REQUEST', findAllProduct),
+  takeLatest('@product/DELETE_PRODUCT_REQUEST', deleteProduct),
 ]);

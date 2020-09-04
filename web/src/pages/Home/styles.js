@@ -15,14 +15,10 @@ export const Menu = styled.div`
     text-align: center;
     margin-bottom: 3.2rem;
 
-    img {
-      height: 10rem;
-    }
-
     h2 {
       font-weight: 500;
       font-size: 2.4rem;
-      line-height: 4.6rem;
+      line-height: 5rem;
       margin-top: 0.8rem;
 
       color: #9c98a6;
@@ -39,7 +35,7 @@ export const ButtonMenu = styled.div`
 
     a {
       width: 15rem;
-      height: 5.4rem;
+      height: 4rem;
       border-radius: 0.8rem;
 
       display: flex;
@@ -47,11 +43,10 @@ export const ButtonMenu = styled.div`
       justify-content: center;
 
       text-decoration: none;
-      font: 700 2rem Archivo;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       background-color: #1c86ee;
       color: #ffffff;
-      transition: background 0.2s;
+      transition: background 0.3s;
 
       svg {
         margin-right: 1rem;

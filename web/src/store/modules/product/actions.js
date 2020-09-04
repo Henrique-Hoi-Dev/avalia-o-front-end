@@ -5,21 +5,49 @@ export function createProductRequest(values) {
   };
 }
 
-export function createProductSuccess(product) {
+export function getByIdProductRequest(data) {
   return {
-    type: '@product/UPDATE_PROFILE_SUCCESS',
-    payload: { product },
+    type: '@user/GET_BYID_PRODUCT_REQUEST',
+    payload: { data },
   };
 }
 
-export function updateProfileFailure() {
+export function getByIdProductSuccess(data) {
   return {
-    type: '@user/UPDATE_PROFILE_REQUEST',
+    type: '@user/GET_BYID_PRODUCT_SUCCESS',
+    payload: { data },
+  };
+}
+
+export function findAllProductRequest(data) {
+  return {
+    type: '@product/FINDALL_PRODUCT_REQUEST',
+    payload: { data },
+  };
+}
+
+export function findAllProductSuccess(data) {
+  return {
+    type: '@product/FIND_ALL_PRODUCT_SUCCESS',
+    payload: { data },
+  };
+}
+
+export function deleteProductRequest(data) {
+  return {
+    type: '@product/DELETE_PRODUCT_REQUEST',
+    payload: { data },
+  };
+}
+
+export function deleteProductSuccess(data) {
+  return {
+    type: '@user/DELETE_PRODUCT_SUCCESS',
   };
 }
 
 export function productFailure() {
   return {
-    type: '@auth/SIGN_FAILURE',
+    type: '@product/SIGN_FAILURE',
   };
 }

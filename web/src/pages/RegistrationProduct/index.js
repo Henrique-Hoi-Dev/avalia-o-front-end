@@ -7,50 +7,63 @@ import { createProductRequest } from '../../store/modules/product/actions';
 
 import Header from '../../components/HeaderRecord';
 import AvatarInput from './Avatarinput';
-import { FcHighPriority, FcList } from 'react-icons/fc';
+import { FcHighPriority } from 'react-icons/fc';
+import { FaListUl } from 'react-icons/fa';
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string()
-    .required(' Este compo é obrigatório.')
-    .max(100, ' No máximo 100 caracteres'),
-  categoria: Yup.string().required(' Este compo é obrigatório.'),
-  altura: Yup.number().required(' Este compo é obrigatório.'),
-  largura: Yup.number().required(' Este compo é obrigatório.'),
-  comprimento: Yup.number().required(' Este compo é obrigatório.'),
-  codigo_de_barra: Yup.number().required(' Este compo é obrigatório.'),
-  peso: Yup.number().required(' Este compo é obrigatório.'),
-  preco: Yup.number().required(' Este compo é obrigatório.'),
-  descricao: Yup.string().required(' Este compo é obrigatório.'),
-  diaDaSemana: Yup.string().required(' Este compo é obrigatório.'),
-  horario: Yup.string().required(' Horário é obrigatório.'),
+    .required('Este compo é obrigatório.')
+    .max(100, 'No máximo 100 caracteres'),
+  categoria: Yup.string().required('Este compo é obrigatório.'),
+  altura: Yup.number().required('Este compo é obrigatório.'),
+  largura: Yup.number().required('Este compo é obrigatório.'),
+  comprimento: Yup.number().required('Este compo é obrigatório.'),
+  codigo_de_barra: Yup.number().required('Este compo é obrigatório.'),
+  peso: Yup.number().required('Este compo é obrigatório.'),
+  preco: Yup.number().required('Este compo é obrigatório.'),
+  descricao: Yup.string().required('Este compo é obrigatório.'),
+  diaDaSemana: Yup.string().required('Este compo é obrigatório.'),
+  horario: Yup.string().required('Horário é obrigatório.'),
 });
 
 export default function RegistrationProduct() {
   const dispatch = useDispatch();
 
-  function handleSubmit(values) {
-    values.avatar_id = document
-      .getElementById('avatar')
-      .getAttribute('data-file');
-    dispatch(createProductRequest(values));
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      console.log(values);
+      values.avatar_id = document
+        .getElementById('avatar')
+        .getAttribute('data-file');
+      dispatch(createProductRequest(values));
+      clearFields(resetForm);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  function clearFields(resetForm) {
+    resetForm({});
+    document.getElementById('avatar').setAttribute('data-file', null);
+    document
+      .getElementById('avatar-img')
+      .setAttribute(
+        'src',
+        'https://faculty.iiit.ac.in/~indranil.chakrabarty/images/empty.png'
+      );
   }
 
   return (
     <Container>
       <Header />
       <div className="header-main">
-        <Link className="list-product" to="/list">
-          <FcList /> Lista de Produto
-        </Link>
-
         <Formik
           onSubmit={handleSubmit}
           validationSchema={schema}
-          validateOnBlur
           initialValues={{
             name: '',
-            categoria: 'celular',
+            categoria: 'Celular',
             altura: '',
             largura: '',
             comprimento: '',
@@ -58,14 +71,21 @@ export default function RegistrationProduct() {
             peso: '',
             preco: '',
             descricao: '',
-            diaDaSemana: 'domingo',
+            diaDaSemana: 'Domingo',
             horario: '',
           }}
           render={({ values, errors }) => (
             <Form className="form-input">
               <div id="container-input" className="header-title">
                 <div className="name-campo">
-                  <label htmlFor="name">Nome do Produto</label>
+                  <label htmlFor="name">
+                    Nome do Produto
+                    <button className="button-list">
+                      <Link to="/list">
+                        <FaListUl color="#fff" size="30" />
+                      </Link>
+                    </button>
+                  </label>
                   <Field name="name" type="text" />
                   <span>{errors.name}</span>
                 </div>
@@ -74,9 +94,11 @@ export default function RegistrationProduct() {
                   <label htmlFor="altura">Altura(cm)</label>
                   <Field name="altura" type="number" />
                   <span>{errors.altura}</span>
+
                   <label htmlFor="largura">Largura(cm)</label>
                   <Field name="largura" type="number" />
                   <span>{errors.largura}</span>
+
                   <label htmlFor="comprimento">Comprimento(cm)</label>
                   <Field name="comprimento" type="number" />
                   <span>{errors.comprimento}</span>
@@ -86,6 +108,7 @@ export default function RegistrationProduct() {
                   <label htmlFor="peso">Peso do produto(g)</label>
                   <Field name="peso" type="number" />
                   <span>{errors.peso}</span>
+
                   <label htmlFor="preco">Preço(R$)</label>
                   <Field name="preco" type="number" />
                   <span>{errors.preco}</span>
@@ -99,7 +122,7 @@ export default function RegistrationProduct() {
                   <Field component="select" id="location" name="categoria">
                     <option value="celular">Celular</option>
                     <option value="tvs">Tvs</option>
-                    <option value="notbook">Notbook</option>
+                    <option value="notebook">Notebook</option>
                     <option value="acessorios">Acessórios</option>
                   </Field>
 

@@ -1,123 +1,104 @@
-import React from 'react';
-import * as Yup from 'yup';
-
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import Header from '../../components/HeaderList';
 import { FcEmptyTrash } from 'react-icons/fc';
-import { Formik, Field, Form } from 'formik';
 import { Container } from './styles';
+import {
+  findAllProductRequest,
+  deleteProductRequest,
+} from '../../store/modules/product/actions';
+import * as moment from 'moment';
 
-const schema = Yup.object().shape({
-  product: Yup.string()
-    .required('! Este compo é obrigatório.')
-    .max(100, '! No máximo 100 caracteres'),
-  categoria: Yup.string().required('! Este compo é obrigatório.'),
-});
+const Projects = ({ productList, handlerRemoveProduct }) => {
+  const dispatch = useDispatch();
 
-function ListProduct() {
-  function onSubmit(values) {
-    console.log(values);
+  useEffect(() => {
+    function onLoad() {
+      dispatch(findAllProductRequest());
+    }
+    onLoad();
+  }, [dispatch]);
+
+  function currencyFormat(num) {
+    console.log(num);
+    if (num) {
+      return (
+        'R$' +
+        parseFloat(num)
+          .toFixed(2)
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+      );
+    }
   }
+
   return (
     <Container>
       <Header />
       <div className="header-main">
-        <Formik
-          onSubmit={onSubmit}
-          validationSchema={schema}
-          validateOnBlur
-          initialValues={{
-            product: '',
-            categoria: 'celular',
-          }}
-          render={({ values, errors }) => (
-            <Form className="form-input">
-              <div id="header-busca" className="header-title">
-                <div className="buscar">
-                  <label htmlFor="product">Produto</label>
-                  <Field name="product" type="text" />
-                  <span>{errors.product}</span>
-                </div>
-
-                <div className="categoria">
-                  <label htmlFor="categoria">Categoria</label>
-                  <Field nome="categoria" component="select">
-                    <option value="celular">Celular</option>
-                    <option value="tvs">Tvs</option>
-                    <option value="notbook">Notbook</option>
-                    <option value="acessorios">Acessórios</option>
-                  </Field>
-                </div>
-              </div>
-              <button type="submit">Buscar</button>
-
-              <table className="table-list">
-                <thead className="table-title">
-                  <td>Lista de Produtos</td>
-                </thead>
-                <tbody>
-                  <tr className="product">
-                    <td>Produto</td>
-                    <td>Preço(R$; 0,00)</td>
-                    <td>Data 01/09/2020</td>
-                    <td>Descrição do produto</td>
+        <h1>Produtos</h1>
+        <form className="form-table">
+          <table className="table-list">
+            <thead>
+              <tr className="table-title">
+                <td>Nome</td>
+                <td>Preço</td>
+                <td>Data</td>
+                <td>Descrição</td>
+                <td>Imagem</td>
+              </tr>
+            </thead>
+            <tbody>
+              {[].concat(productList).map((produto, i) => (
+                <tr key={i} value={produto.id}>
+                  <td>{produto.name}</td>
+                  <td>{currencyFormat(produto.preco)}</td>
+                  <td>{moment(produto.createdAt).format('DD-MM-YYYY')}</td>
+                  <td>{produto.descricao}</td>
+                  <td>
                     <img
-                      src="https://avatars1.githubusercontent.com/u/62766753?s=400&u=1b68262c4b2abe58a779bb03ae2c3d7e46ee4358&v=4"
+                      src={
+                        produto.avatar
+                          ? produto.avatar.url
+                          : 'https://faculty.iiit.ac.in/~indranil.chakrabarty/images/empty.png'
+                      }
                       alt="avatar"
+                      className="avatar"
                     />
-                    <button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={(e) => handlerRemoveProduct(e, produto.id)}
+                    >
                       <FcEmptyTrash />
                     </button>
-                  </tr>
-                  <tr className="product">
-                    <td>Produto 2</td>
-                    <td>Preço(R$; 0,00)</td>
-                    <td>Data 01/09/2020</td>
-
-                    <td>Descrição do produto</td>
-                    <img
-                      src="https://avatars1.githubusercontent.com/u/62766753?s=400&u=1b68262c4b2abe58a779bb03ae2c3d7e46ee4358&v=4"
-                      alt="avatar"
-                    />
-                    <button>
-                      <FcEmptyTrash />
-                    </button>
-                  </tr>
-                  <tr className="product">
-                    <td>Produto 3</td>
-                    <td>Preço(R$; 0,00)</td>
-
-                    <td>Data 01/09/2020</td>
-
-                    <td>Descrição do produto</td>
-                    <img
-                      src="https://avatars1.githubusercontent.com/u/62766753?s=400&u=1b68262c4b2abe58a779bb03ae2c3d7e46ee4358&v=4"
-                      alt="avatar"
-                    />
-                    <button>
-                      <FcEmptyTrash />
-                    </button>
-                  </tr>
-                  <tr className="product">
-                    <td>Produto 4</td>
-                    <td>Preço(R$; 0,00)</td>
-                    <td>Data 01/09/2020</td>
-                    <td>Descrição do produto</td>
-                    <img
-                      src="https://avatars1.githubusercontent.com/u/62766753?s=400&u=1b68262c4b2abe58a779bb03ae2c3d7e46ee4358&v=4"
-                      alt="avatar"
-                    />
-                    <button>
-                      <FcEmptyTrash />
-                    </button>
-                  </tr>
-                </tbody>
-              </table>
-            </Form>
-          )}
-        />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </form>
       </div>
     </Container>
   );
-}
+};
 
-export default ListProduct;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    productList: state.product.productList ? state.product.productList : [],
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handlerRemoveProduct: async (e, id) => {
+      e.preventDefault();
+      const confirm = window.confirm('You want to remove this Product?');
+      if (confirm) {
+        dispatch(deleteProductRequest(id));
+      }
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);

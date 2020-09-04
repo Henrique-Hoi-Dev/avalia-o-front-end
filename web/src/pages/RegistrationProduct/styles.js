@@ -17,23 +17,7 @@ export const Container = styled.div`
     padding-top: 6.4rem;
     overflow: hidden;
 
-    .list-product {
-      background: none;
-      text-decoration: none;
-
-      display: flex;
-      flex-direction: row-reverse;
-      border: 0;
-      margin-right: 1rem;
-      color: var(--color-primary);
-      font: 700 1.6rem Archivo;
-      cursor: pointer;
-      transition: color 0.2s;
-
-      &:hover {
-        color: ${darken(0.03, '#6842c2')};
-      }
-  }
+    
 
   input,
   select {
@@ -51,6 +35,31 @@ export const Container = styled.div`
     border: 0;
     padding: 0 2.4rem;
     margin-top: 0.1rem;
+
+    
+
+    .button-list{
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.3rem;
+      
+      border-radius: 0.2rem;
+      background: var(--color-primary-dark);
+ ;
+      text-decoration: none;
+
+      display: flex;
+      flex-direction: center;
+
+      border: 0;
+      margin-right: 1rem;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &:hover {
+        background: ${darken(0.03, '#6842c2')};
+      }
+  }
 
     button {
       background: none;
@@ -79,7 +88,6 @@ export const Container = styled.div`
       justify-content: space-between;
       width: 100%;
       padding-bottom: 1.6rem;
-      border-bottom: 1px solid var(--color-line-in-white);
     }
 
     textarea {
@@ -104,8 +112,7 @@ export const Container = styled.div`
 
     span {
       color: #ff0000;
-      align-self: flex-start;
-      margin: 0 0 10px;
+      margin: 0 0 0 20px;
       font-weight: bold;
     }
 
@@ -115,10 +122,14 @@ export const Container = styled.div`
     }
 
     footer {
-      padding: 3rem 2.4rem;
+      padding: 2rem ;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      svg {
+        margin-right: 1rem;
+      }
     }
   }
   
@@ -140,6 +151,7 @@ export const Container = styled.div`
 
     .name-campo {
       grid-area: name;
+      
     }
 
     .campo2 {

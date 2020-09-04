@@ -40,8 +40,6 @@ export default createGlobalStyle`
   --color-primary: #8257e5;
   --color-primary-dark: #774dd6;
   --color-primary-darker: #6842c2;
-  --color-secundary: #04d361;
-  --color-secundary-dark: #04bf58;
   --color-title-in-primary: #ffffff;
   --color-text-in-primary: #d4c2ff;
   --color-text-title: #32264d;

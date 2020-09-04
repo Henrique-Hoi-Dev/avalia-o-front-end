@@ -24,7 +24,7 @@ export const PageHeader = styled.div`
     }
 
     img {
-      height: 1.6rem;
+      height: 2.6rem;
     }
   }
 
