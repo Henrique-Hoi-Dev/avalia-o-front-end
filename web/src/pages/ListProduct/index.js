@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import * as moment from 'moment';
+
+import { Container } from './styles';
 import Header from '../../components/HeaderList';
 import { FcEmptyTrash } from 'react-icons/fc';
-import { Container } from './styles';
+import { FiEdit } from 'react-icons/fi';
+
 import {
   findAllProductRequest,
   deleteProductRequest,
 } from '../../store/modules/product/actions';
-import * as moment from 'moment';
+import { Link } from 'react-router-dom';
 
-const Projects = ({ productList, handlerRemoveProduct }) => {
+const ProductList = ({ productList, handlerRemoveProduct }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,7 +24,6 @@ const Projects = ({ productList, handlerRemoveProduct }) => {
   }, [dispatch]);
 
   function currencyFormat(num) {
-    console.log(num);
     if (num) {
       return (
         'R$' +
@@ -54,7 +57,7 @@ const Projects = ({ productList, handlerRemoveProduct }) => {
                   <td>{currencyFormat(produto.preco)}</td>
                   <td>{moment(produto.createdAt).format('DD-MM-YYYY')}</td>
                   <td>{produto.descricao}</td>
-                  <td>
+                  <td className="avatar">
                     <img
                       src={
                         produto.avatar
@@ -64,6 +67,13 @@ const Projects = ({ productList, handlerRemoveProduct }) => {
                       alt="avatar"
                       className="avatar"
                     />
+                  </td>
+                  <td>
+                    <button>
+                      <Link to={`/product/${produto.id}`}>
+                        <FiEdit />
+                      </Link>
+                    </button>
                   </td>
                   <td>
                     <button
@@ -83,7 +93,6 @@ const Projects = ({ productList, handlerRemoveProduct }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     productList: state.product.productList ? state.product.productList : [],
   };
@@ -101,4 +110,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

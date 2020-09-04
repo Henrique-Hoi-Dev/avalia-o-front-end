@@ -9,8 +9,13 @@ function Routes() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Home} />
-      <Route path="/list" component={ListProduct} />
-      <Route path="/record-product" component={RegistrationProduct} />
+      <Route path="/list" exact component={ListProduct} />
+      <Route path="/product" exact component={RegistrationProduct} />
+      <Route
+        path="/product/:id"
+        exact
+        render={(props) => <RegistrationProduct {...props} />}
+      />
     </BrowserRouter>
   );
 }

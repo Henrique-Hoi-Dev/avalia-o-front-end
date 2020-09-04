@@ -16,7 +16,7 @@ function Home() {
       </Menu>
       <ButtonMenu>
         <div className="button-home">
-          <Link to="/record-product" className="record-product">
+          <Link to="/product" className="record-product">
             <FaPencilAlt /> Registrar Produto
           </Link>
           <Link to="/list" className="list">

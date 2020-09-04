@@ -7,14 +7,14 @@ export function createProductRequest(values) {
 
 export function getByIdProductRequest(data) {
   return {
-    type: '@user/GET_BYID_PRODUCT_REQUEST',
+    type: '@product/GET_BYID_PRODUCT_REQUEST',
     payload: { data },
   };
 }
 
 export function getByIdProductSuccess(data) {
   return {
-    type: '@user/GET_BYID_PRODUCT_SUCCESS',
+    type: '@product/GET_BYID_PRODUCT_SUCCESS',
     payload: { data },
   };
 }
@@ -29,6 +29,20 @@ export function findAllProductRequest(data) {
 export function findAllProductSuccess(data) {
   return {
     type: '@product/FIND_ALL_PRODUCT_SUCCESS',
+    payload: { data },
+  };
+}
+
+export function UpdateProductRequest(data) {
+  return {
+    type: '@product/UPDATE_PRODUCT_REQUEST',
+    payload: { data },
+  };
+}
+
+export function UpdateProductSuccess(data) {
+  return {
+    type: '@product/UPDATE_PRODUCT_SUCCESS',
     payload: { data },
   };
 }
@@ -49,5 +63,11 @@ export function deleteProductSuccess(data) {
 export function productFailure() {
   return {
     type: '@product/SIGN_FAILURE',
+  };
+}
+
+export function resetFormulario() {
+  return {
+    type: '@product/RESET_FORM',
   };
 }

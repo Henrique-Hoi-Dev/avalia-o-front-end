@@ -27,12 +27,17 @@ export const Container = styled.div`
       border-radius: 0.8rem;
     }
 
+    .avatar table td {
+      max-width: 2px;
+    }
+
     button {
+      max-width: 2px;
       background: none;
       border: 0;
       margin: 1rem;
       color: var(--color-primary);
-      font: 700 2rem Archivo;
+      font: 700 1.5rem Archivo;
       cursor: pointer;
     }
   }

@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 import api from '../../../services/api';
-
+import { useSelector } from 'react-redux';
 import { Container } from './styles';
+import { useParams } from 'react-router-dom';
 
 export default function AvatarInput() {
   const { defaultValue, registerField } = useField('avatar');
-
+  const { avatar } = useSelector((state) => state.product.form);
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
-
+  const { id } = useParams();
   const ref = useRef();
 
   useEffect(() => {
@@ -20,7 +21,11 @@ export default function AvatarInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+    if (id && avatar) {
+      setFile(avatar.id);
+      setPreview(avatar.url);
+    }
+  }, [avatar, id, ref, registerField]);
 
   async function handleChange(e) {
     const data = new FormData();
