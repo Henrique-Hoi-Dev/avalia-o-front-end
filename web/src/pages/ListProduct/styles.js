@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   width: 100vw;
@@ -57,6 +58,15 @@ export const Container = styled.div`
     th {
       padding: 0.5rem;
       text-align: left;
+    }
+
+    a {
+      color: #1874cd;
+      transition: background 0.3s;
+
+      &:hover {
+        color: ${darken(0.03, '#1874CD')};
+      }
     }
 
     .avatar {

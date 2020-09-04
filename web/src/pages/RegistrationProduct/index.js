@@ -28,7 +28,7 @@ const schema = Yup.object().shape({
   peso: Yup.number().required('Este compo é obrigatório.'),
   preco: Yup.number().required('Este compo é obrigatório.'),
   descricao: Yup.string().required('Este compo é obrigatório.'),
-  diaDaSemana: Yup.string().required('Este compo é obrigatório.'),
+  dia_da_semana: Yup.string().required('Este compo é obrigatório.'),
   horario: Yup.string().required('Horário é obrigatório.'),
 });
 
@@ -137,8 +137,12 @@ export default function RegistrationProduct() {
                       <option value="acessorios">Acessórios</option>
                     </Field>
 
-                    <label htmlFor="diaDaSemana">Dia da semana</label>
-                    <Field component="select" id="location" name="diaDaSemana">
+                    <label htmlFor="dia_da_semana">Dia da semana</label>
+                    <Field
+                      component="select"
+                      id="location"
+                      name="dia_da_semana"
+                    >
                       <option value="domingo">Domingo</option>
                       <option value="segunda-feira">Segunda-feira</option>
                       <option value="terça-feira">Terça-feira</option>

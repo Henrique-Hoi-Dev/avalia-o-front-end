@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   form: {
     id: undefined,
     name: '',
-    categoria: '0',
+    categoria: 'celular',
     altura: '',
     largura: '',
     comprimento: '',
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
     peso: '',
     preco: '',
     descricao: '',
-    diaDaSemana: '0',
+    dia_da_semana: 'domingo',
     horario: '00:00',
   },
 };
@@ -25,7 +25,7 @@ export default function product(state = INITIAL_STATE, action) {
         draft.form = {
           id: undefined,
           name: '',
-          categoria: '0',
+          categoria: 'calular',
           altura: '',
           largura: '',
           comprimento: '',
@@ -33,7 +33,7 @@ export default function product(state = INITIAL_STATE, action) {
           peso: '',
           preco: '',
           descricao: '',
-          diaDaSemana: '0',
+          dia_da_semana: 'domingo',
           horario: '00:00',
         };
         break;
