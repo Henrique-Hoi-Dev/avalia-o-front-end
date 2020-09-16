@@ -1,6 +1,8 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
-import api from '../../../services/api';
+// import history from '~/services/history';
+import api from '~/services/api';
 
 import {
   productFailure,
@@ -11,8 +13,11 @@ import {
 export function* createProduct({ payload }) {
   try {
     yield call(api.post, 'products/new', payload);
+
+    toast.success('Produto salvo com sucesso.');
   } catch (err) {
     yield put(productFailure());
+    toast.error('Error saving product.');
   }
 }
 
@@ -22,6 +27,7 @@ export function* findAllProduct({ payload }) {
 
     yield put(findAllProductSuccess(response.data));
   } catch (err) {
+    toast.error('Error searching products check data.');
     yield put(productFailure());
   }
 }
@@ -32,6 +38,7 @@ export function* getByIdProduct({ payload }) {
 
     yield put(getByIdProductSuccess(response.data));
   } catch (err) {
+    toast.error('Error searching products check data.');
     yield put(productFailure());
   }
 }
@@ -43,7 +50,9 @@ export function* UpdateProduct({ payload }) {
     const response = yield call(api.get, `/products`);
 
     yield put(findAllProductSuccess(response.data));
+    toast.success('Editado com sucesso.');
   } catch (err) {
+    toast.error('Error editing products checking data.');
     yield put(productFailure());
   }
 }
@@ -53,9 +62,11 @@ export function* deleteProduct({ payload }) {
     yield call(api.delete, `/products/${payload.data}`);
 
     const response = yield call(api.get, `/products`);
-
     yield put(findAllProductSuccess(response.data));
+
+    toast.success('Produto deletado');
   } catch (err) {
+    toast.error('Error deleting products checking data');
     yield put(productFailure());
   }
 }

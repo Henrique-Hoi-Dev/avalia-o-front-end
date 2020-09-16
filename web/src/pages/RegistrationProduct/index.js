@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { Formik, Field, Form } from 'formik';
+import { toast } from 'react-toastify';
+
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -57,10 +59,11 @@ export default function RegistrationProduct() {
         dispatch(UpdateProductRequest({ id: id, values: body }));
       } else {
         dispatch(createProductRequest(body));
+
         handleReset(resetForm);
       }
     } catch (error) {
-      console.log(error);
+      toast.error('Error check data');
     }
   };
 

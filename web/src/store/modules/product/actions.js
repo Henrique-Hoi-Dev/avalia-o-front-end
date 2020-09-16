@@ -54,15 +54,9 @@ export function deleteProductRequest(data) {
   };
 }
 
-export function deleteProductSuccess(data) {
-  return {
-    type: '@user/DELETE_PRODUCT_SUCCESS',
-  };
-}
-
 export function productFailure() {
   return {
-    type: '@product/SIGN_FAILURE',
+    type: '@product/PRODUCT_FAILURE',
   };
 }
 

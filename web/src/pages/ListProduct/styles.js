@@ -108,6 +108,9 @@ export const Container = styled.div`
       display: block;
       font-size: 1.2rem;
       text-align: right;
+
+      display: flex;
+      justify-content: space-between;
     }
 
     table td::before {
