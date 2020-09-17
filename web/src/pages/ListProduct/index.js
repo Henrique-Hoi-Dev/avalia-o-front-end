@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { Container } from './styles';
 import Header from '../../components/HeaderList';
 import { FcEmptyTrash } from 'react-icons/fc';
-import { FiEdit } from 'react-icons/fi';
+import { BiEditAlt } from 'react-icons/bi';
 
 import {
   findAllProductRequest,
@@ -23,6 +23,7 @@ const ProductList = ({ productList, handlerRemoveProduct }) => {
     onLoad();
   }, [dispatch]);
 
+  //formatção do preço do produto
   function currencyFormat(num) {
     if (num) {
       return (
@@ -71,7 +72,7 @@ const ProductList = ({ productList, handlerRemoveProduct }) => {
                   <td>
                     <button>
                       <Link to={`/product/${produto.id}`}>
-                        <FiEdit />
+                        <BiEditAlt />
                       </Link>
                     </button>
                   </td>
@@ -102,7 +103,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handlerRemoveProduct: async (e, id) => {
       e.preventDefault();
-      const confirm = window.confirm('You want to remove this Product?');
+      const confirm = window.confirm(
+        'Tem certeza que deseja remover esse produto?'
+      );
       if (confirm) {
         dispatch(deleteProductRequest(id));
       }

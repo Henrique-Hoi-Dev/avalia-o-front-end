@@ -10,9 +10,9 @@ import {
   getByIdProductRequest,
   UpdateProductRequest,
   resetFormulario,
-} from '../../store/modules/product/actions';
+} from '~/store/modules/product/actions';
 
-import Header from '../../components/HeaderRecord';
+import Header from '~/components/HeaderRecord';
 import AvatarInput from './Avatarinput';
 import { FcHighPriority } from 'react-icons/fc';
 import { FaListUl } from 'react-icons/fa';

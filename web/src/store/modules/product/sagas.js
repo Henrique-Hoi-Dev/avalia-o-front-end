@@ -1,7 +1,7 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
-// import history from '~/services/history';
+import history from '~/services/history';
 import api from '~/services/api';
 
 import {
@@ -50,7 +50,9 @@ export function* UpdateProduct({ payload }) {
     const response = yield call(api.get, `/products`);
 
     yield put(findAllProductSuccess(response.data));
+
     toast.success('Editado com sucesso.');
+    history.push('/list');
   } catch (err) {
     toast.error('Error editing products checking data.');
     yield put(productFailure());
