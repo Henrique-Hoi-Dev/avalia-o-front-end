@@ -24,6 +24,7 @@ export default function SignIn() {
   }
   return (
     <>
+      <label>Login usuário</label>
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />

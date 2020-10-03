@@ -2,36 +2,26 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Wrapper = styled.div`
-  height: 80%;
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  img {
-    width: 20rem;
-    height: 20rem;
-  }
-
-  @media (min-width: 700px) {
-    img {
-      width: 40rem;
-      height: 40rem;
-    }
-  }
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  width: 400px;
+  height: 370px;
 
   padding: 2rem;
-  max-width: 315px;
   text-align: center;
 
   border-radius: 0.8rem;
-  background: var(--color-box-base);
-  border: 0.1rem solid var(--color-line-in-white);
+  background: rgba(0, 0, 0, 0.5);
 
   -webkit-box-shadow: 1px 1px 3px 1px #999;
 
@@ -41,14 +31,21 @@ export const Content = styled.div`
     margin-top: 2rem;
   }
 
+  label {
+    color: #fff;
+
+    align-self: flex-start;
+    margin: 0 0 1rem;
+  }
+
   input {
     width: 100%;
     background: var(--color-input-background);
     border: 1px solid var(--color-line-in-white);
-    font: 1.2rem Archivo;
+    font: 1rem Archivo;
 
-    border-radius: 0.6rem;
-    height: 2.5rem;
+    border-radius: 0.2rem;
+    height: 2.2rem;
     padding: 0 1rem;
     margin: 0 0 1rem;
   }
@@ -76,7 +73,7 @@ export const Content = styled.div`
   }
 
   a {
-    color: #333;
+    color: #fff;
     margin-top: 15px;
     text-decoration: none;
     font-weight: bold;
@@ -99,10 +96,10 @@ export const Content = styled.div`
       width: 100%;
       background: var(--color-input-background);
       border: 1px solid var(--color-line-in-white);
-      font: 2rem Archivo;
+      font: 1rem Archivo;
 
       border-radius: 0.6rem;
-      height: 4.2rem;
+      height: 2.5rem;
       padding: 0 1.5rem;
       margin: 0 0 1rem;
     }
@@ -130,7 +127,7 @@ export const Content = styled.div`
     }
 
     a {
-      color: #000;
+      color: var(--color-title-in-primary);
       margin-top: 15px;
       text-decoration: none;
       font-weight: bold;
