@@ -10,7 +10,7 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, 'sessions', {
+    const response = yield call(api.post, 'users/authenticate', {
       email,
       password,
     });
@@ -23,7 +23,7 @@ export function* signIn({ payload }) {
       return;
     }
 
-    api.defaults.headers.Authorization = `Bearer ${token} `;
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
 
@@ -60,6 +60,7 @@ export function setToken({ payload }) {
 
   if (token) {
     api.defaults.headers.Authorization = `Bearer ${token} `;
+    console.log(token);
   }
 }
 
